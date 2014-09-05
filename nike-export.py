@@ -48,7 +48,7 @@ while url:
 			fuel = metrics.get('fuel')
 			steps = metrics.get('steps')
                         # convert from km to mi and round
-                        miles = metrics.get('distance') * 0.621371
+                        miles = float(metrics.get('distance')) * 0.621371
                         distance = '%.2f' % round(miles, 2)
 
                         # remove milliseconds
@@ -82,7 +82,7 @@ while url:
 			duration = metrics.get('duration').partition('.')[0]
 
 			if activity.get('activityType') == "RUN": 
-				file.write(date + ' : ' + distance.ljust(5) + ' miles ' + pace.ljust(11) + ' fuel: ' + str(fuel).ljust(5) + ' calories: ' +  str(calories).ljust(4) + ' active: '  + duration.ljust(7) + ' | ' + emotion.ljust(12) + ' | ' + shoes.ljust(12) + ' | ' + weather.ljust(12) + ' | ' + terrain.ljust(9) + ' | ' + note + '\n')
+				file.write(date + ' : ' + distance.ljust(5) + ' miles ' + pace.ljust(11) + ' fuel: ' + str(fuel).ljust(5) + ' calories: ' +  str(calories).ljust(4) + ' active: '  + duration.ljust(7) + ' | ' + emotion.ljust(12) + ' | ' + shoes.ljust(12) + ' | ' + weather.ljust(12) + ' | ' + terrain.ljust(9) + ' | ' + str(note) + '\n')
 				emotion = '' 
 				note = ''
 				shoes = ''
